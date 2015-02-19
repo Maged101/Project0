@@ -1,0 +1,57 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.math.*;
+
+public class project0 {
+/**
+ * @param args
+ */
+public static void main(String[] args) {
+System.out.println("Enter the two numbers that you wish to add..");
+Scanner scan = new Scanner (System.in);
+//declaring new scanner
+try {
+	double firstnumber = scan.nextDouble();
+	double secondnumber = scan.nextDouble();
+	double sum = firstnumber + secondnumber;
+    //declared variables and what is expected of the program
+	/*used a rounding method to differentiate between an integer and a double
+	since a rounded input will never equal the original input unless it is a singular integer
+	i.e 2.34 rounded is 2 which != 2.34 meaning it will be treated as a double.
+	other wise it is 2 rounded to 2 which will then be treated as an integer*/
+if (Math.round(firstnumber)==firstnumber && Math.round(secondnumber) != secondnumber)  {
+	System.out.println("would you like to round the answer; Enter 1 for yes.");
+	int optional = scan.nextInt();
+	if (optional == 1) {
+		System.out.println ("The sum of " + firstnumber + " + " + secondnumber + " = " + Math.round(sum));
+	}
+	else 
+		System.out.println ("The sum of " + firstnumber + " + " + secondnumber + " = " + sum);
+}
+if (Math.round(secondnumber)==secondnumber && Math.round(firstnumber) != firstnumber)  {
+		System.out.println("would you like to round the answer; Enter 1 for yes.");
+		int optional = scan.nextInt();
+		if (optional == 1) {
+			System.out.println ("The sum of " + firstnumber + " + " + secondnumber + " = " + Math.round(sum));
+		}
+		else 
+			System.out.println ("The sum of " + firstnumber + " + " + secondnumber + " = " + sum);
+/*for conditions where the user inputs a double and an integer, it would ask them if they wish 
+ to round the answer or not, based on thier response it will round to an integer or solve it as 
+ a double*/
+}
+if (Math.round(secondnumber)!=secondnumber && Math.round(firstnumber) != firstnumber)  {
+		System.out.println ("The sum of " + firstnumber + " + " + secondnumber + " = " + sum);
+}
+if (Math.round(secondnumber)==secondnumber && Math.round(firstnumber) == firstnumber)  {
+	
+		System.out.println ("The sum of " + firstnumber + " + " + secondnumber + " = " + sum);
+	}
+}
+//the expected the error and how to change the exception message in to something simple for the user//
+catch(InputMismatchException e){ 
+	System.out.println("Not a number. please try again!");
+	System.exit(1);
+		}
+	}
+}
